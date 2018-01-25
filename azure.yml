@@ -57,7 +57,7 @@ hosts: all
     admin_password: Password!
     network_interfaces: testnic001
     image:
-      offer: CentOS
-      publisher: OpenLogic
-      sku: '7.1'
+      offer: RHEL
+      publisher: RedHat
+      sku: '7-RAW'
       version: latest
