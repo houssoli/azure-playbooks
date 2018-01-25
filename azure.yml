@@ -1,17 +1,19 @@
-hosts: all
 - name: Create storage account
+  hosts: localhost
   azure_rm_storageaccount:
     resource_group: Testing
     name: testaccount001
     account_type: Standard_LRS
 
 - name: Create virtual network
+  hosts: localhost
   azure_rm_virtualnetwork:
     resource_group: Testing
     name: testvn001
     address_prefixes: "10.10.0.0/16"
 
 - name: Add subnet
+  hosts: localhost
   azure_rm_subnet:
     resource_group: Testing
     name: subnet001
@@ -19,12 +21,14 @@ hosts: all
     virtual_network: testvn001
 
 - name: Create public ip
+  hosts: localhost
   azure_rm_publicipaddress:
     resource_group: Testing
     allocation_method: Static
     name: publicip001
 
 - name: Create security group that allows SSH
+  hosts: localhost
   azure_rm_securitygroup:
     resource_group: Testing
     name: secgroup001
@@ -37,6 +41,7 @@ hosts: all
         direction: Inbound
 
 - name: Create NIC
+  hosts: localhost
   azure_rm_networkinterface:
     resource_group: Testing
     name: testnic001
@@ -46,6 +51,7 @@ hosts: all
     security_group: secgroup001
 
 - name: Create virtual machine
+  hosts: localhost
   azure_rm_virtualmachine:
     resource_group: Testing
     name: testvm001
